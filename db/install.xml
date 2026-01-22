@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="mod/drivepdf/db" VERSION="2025111700" COMMENT="Drive PDF module"
+<XMLDB PATH="mod/visorpdf/db" VERSION="2025111700" COMMENT="Drive PDF module"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="../../lib/xmldb/xmldb.xsd">
 
     <TABLES>
-        <TABLE NAME="drivepdf" COMMENT="Drive PDF activities">
+        <TABLE NAME="visorpdf" COMMENT="Drive PDF activities">
             <FIELDS>
                 <FIELD NAME="id"          TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
                 <FIELD NAME="course"      TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0"/>
