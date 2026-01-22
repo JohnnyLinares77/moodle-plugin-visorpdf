@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<XMLDB PATH="mod/visorpdf/db" VERSION="2025111700" COMMENT="Drive PDF module"
+<XMLDB PATH="mod/visorpdf/db" VERSION="2025111701" COMMENT="Drive PDF module"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:noNamespaceSchemaLocation="../../lib/xmldb/xmldb.xsd">
 
