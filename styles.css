@@ -1,67 +1,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
 
-
-.mod_drivepdf_wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 0;
-}
-
-.mod_drivepdf_viewer {
+/* Contenedor Principal */
+.mod_visorpdf_wrapper {
     position: relative;
     width: 100%;
-    padding-bottom: 56.25%; /* 16:9 */
-    background: #111;
-    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
 }
 
-.mod_drivepdf_viewer iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+/* Área del Visor (iframe) */
+.mod_visorpdf_viewer {
+    position: relative;
     width: 100%;
-    height: 100%;
+    min-height: 600px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mod_visorpdf_viewer iframe {
+    display: block;
+    width: 100%;
+    height: 800px;
+    /* Ajusta según necesidad */
     border: none;
 }
 
-/* Overlay vertical del engranaje */
-.mod_drivepdf_cover {
+/* 
+   CAPA SUPERIOR (OVERLAY)
+   Cubre la esquina derecha para tapar el botón "Pop-out".
+*/
+.mod_visorpdf_cover {
     position: absolute;
-    top: 8px;
-    right: 4px;
-    width: 64px;
-    height: 88px;
-    background: #202020;
-    border-radius: 12px;
-    z-index: 999;
-
+    top: 0;
+    right: 0;
+    width: 60px;
+    /* Ajusta para cubrir el botón */
+    height: 60px;
+    /* Ajusta altura */
+    background-color: #fff;
+    /* Debe coincidir con el fondo para ser invisible */
+    z-index: 10;
+    /* Por encima del iframe */
+    pointer-events: none;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.mod_drivepdf_cover_icon {
-    width: 40px;
-    height: 40px;
-    pointer-events: none;
-    filter: brightness(0) invert(1); /* Blanco */
+.mod_visorpdf_cover_icon {
+    width: 32px;
+    height: 32px;
+    opacity: 0.8;
 }
 
-/* Marca de agua diagonal */
-.mod_drivepdf_watermark {
+/* MARCA DE AGUA (Text Overlay) */
+.mod_visorpdf_watermark {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-28deg);
-
-    font-family: 'Ubuntu Mono', monospace;
-    font-size: 40px;
-    font-weight: 600;
-    color: rgba(150, 150, 150, 0.50);
-
-    white-space: nowrap;
+    bottom: 10px;
+    right: 10px;
+    z-index: 20;
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.3);
     pointer-events: none;
-    width: 200%;
-    text-align: center;
-    z-index: 10;
+    user-select: none;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 2px 6px;
+    border-radius: 4px;
 }
