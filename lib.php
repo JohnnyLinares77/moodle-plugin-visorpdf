@@ -106,35 +106,30 @@ function visorpdf_delete_instance($id) {
  * @return bool False if file not found, does not return if found - just checks permissions and sends it
  */
 function visorpdf_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options=array()) {
-    global $CFG, $DB;
+    global $DB, $CFG;
 
-    // Verificar que estamos en el nivel de módulo
     if ($context->contextlevel != CONTEXT_MODULE) {
         return false;
     }
 
-    // Verificar login
     require_login($course, false, $cm);
 
-    // Moodle suele guardar los archivos de actividad en el área 'content'
+    // El área debe ser 'content', que es el estándar
     if ($filearea !== 'content') {
         return false;
     }
 
-    // Extraer los componentes de la ruta del archivo
-    $itemid = array_shift($args); // Generalmente es 0
-    $filename = array_pop($args); // El nombre del archivo (ej: manual.pdf)
-    $filepath = '/' . implode('/', $args) . '/'; // La ruta de carpetas, si existe
+    $itemid = array_shift($args);
+    $filename = array_pop($args);
+    $filepath = '/' . implode('/', $args) . '/';
 
+    // Esta función busca automáticamente en la tabla de archivos correcta (m_files en tu caso)
     $fs = get_file_storage();
-    
-    // IMPORTANTE: 'mod_visorpdf' debe coincidir con el nombre de tu carpeta de plugin
     $file = $fs->get_file($context->id, 'mod_visorpdf', $filearea, $itemid, $filepath, $filename);
 
     if (!$file || $file->is_directory()) {
         return false;
     }
 
-    // Servir el archivo al navegador
     send_stored_file($file, null, 0, $forcedownload, $options);
 }
