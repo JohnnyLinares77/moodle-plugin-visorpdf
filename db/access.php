@@ -2,7 +2,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $capabilities = [
-    'mod/drivepdf:view' => [
+    'mod/visorpdf:view' => [
         'captype'      => 'read',
         'contextlevel' => CONTEXT_MODULE,
         'archetypes'   => [
@@ -13,7 +13,7 @@ $capabilities = [
         ],
     ],
 
-    'mod/drivepdf:addinstance' => [
+    'mod/visorpdf:addinstance' => [
         'captype'      => 'write',
         'contextlevel' => CONTEXT_COURSE,
         'archetypes'   => [
